@@ -1,0 +1,50 @@
+
+================================================================================
+                    SQL INJECTION DETECTION MODEL - EVALUATION REPORT
+================================================================================
+
+OVERALL METRICS
+---------------
+Accuracy          : 0.9649 (96.49%)
+Precision         : 1.0000
+Recall            : 0.9459
+F1-Score          : 0.9722
+AUC-ROC           : 0.9743
+Average Precision : 0.9890
+
+CLASS-SPECIFIC METRICS
+-----------------------
+Safe Queries (Label 0):
+  - Precision : 0.9091
+  - Recall    : 1.0000
+  - F1-Score  : 0.9524
+
+Malicious Queries (Label 1):
+  - Precision : 1.0000
+  - Recall    : 0.9459
+  - F1-Score  : 0.9722
+
+CONFUSION MATRIX
+----------------
+                  Predicted
+                  Safe    Malicious
+Actual  Safe         20        0
+        Malicious    2       35
+
+INTERPRETATION
+--------------
+- True Negatives (TN)  :    20 - Correctly identified safe queries
+- False Positives (FP) :     0 - Safe queries incorrectly flagged as malicious
+- False Negatives (FN) :     2 - Malicious queries missed (not detected)
+- True Positives (TP)  :    35 - Correctly identified malicious queries
+
+GENERATED VISUALIZATIONS
+------------------------
+1. confusion_matrix.png    - Heatmap of confusion matrix
+2. roc_curve.png          - ROC curve with AUC score
+3. precision_recall_curve.png - Precision-Recall curve
+4. metrics_bar.png        - Bar chart of all metrics
+5. class_distribution.png  - Dataset class distribution
+6. feature_importance.png - Top 20 important features
+
+================================================================================

